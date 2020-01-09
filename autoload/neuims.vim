@@ -1,8 +1,18 @@
 scriptencoding utf-8
 
+
+let s:default = {
+      \ 'im': 'US Keyboard',
+      \ 'status': 0,
+      \ 'keyboards': {
+      \   'US Keyboard': 0x0409,
+      \   'Microsoft Pinyin': 0x0804,
+      \ },
+      \ }
+
 function! neuims#Init() abort
   if !exists('g:neuims')
-    let g:neuims = neuims#default#Config()
+    let g:neuims = s:default
   endif
   " if exists('g:neuims')
   "   if !has_key(g:neuims, 'keyboards')
