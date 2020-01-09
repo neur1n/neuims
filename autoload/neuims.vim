@@ -1,6 +1,5 @@
 scriptencoding utf-8
 
-
 let s:default = {
       \ 'im': 'US Keyboard',
       \ 'status': 0,
