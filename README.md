@@ -1,6 +1,8 @@
 # neuims
 An input method switcher.
 
+![](./screenshot.gif)
+
 
 ## Table of Contents
 - [Requirement](#requirement)
