@@ -17,7 +17,7 @@ function! neuims#keyboard#Enable(im_name) abort
   if has('unix')
     call s:UnixEnable(l:im_id)
   elseif has('win32')
-    call s:WinEnable('l:im_id')
+    call s:WinEnable(l:im_id)
   endif
 
   let g:neuims.im = a:im_name
@@ -35,12 +35,12 @@ import win32.win32api as wi
 import win32.win32gui as wg
 import vim
 
-win =  wg.GetForegroundWindow() abort
-wi.SendMessage(win, WM_INPUTLANGCHANGEREQUEST, 0, int(vim.eval(a:im_id)))
+win =  wg.GetForegroundWindow()
+wi.SendMessage(win, WM_INPUTLANGCHANGEREQUEST, 0, int(vim.eval('a:im_id')))
 EOF
 endfunction
 
-function! s:UnixEnable(im_id)
+function! s:UnixEnable(im_id) abort
   echomsg 'ibus engin '.a:im_id
   call system('ibus engine '.a:im_id)
 endfunction
