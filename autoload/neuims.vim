@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-let s:default = {
+let s:win10 = {
       \ 'im': 'US Keyboard',
       \ 'status': 0,
       \ 'keyboards': {
@@ -9,19 +9,32 @@ let s:default = {
       \ },
       \ }
 
+let s:ibus = {
+      \ 'im': 'English (US)',
+      \ 'status': 0,
+      \ 'keyboards': {
+      \   'English (US)': 'xkb:us::eng',
+      \   'Pinyin': 'pinyin',
+      \ },
+      \ }
+
 function! neuims#Init() abort
   if !exists('g:neuims')
-    let g:neuims = s:default
+    if has('unix')
+      let g:neuims = s:ibus
+    elseif has('win32')
+      let g:neuims = s:win10
+    endif
   endif
   " if exists('g:neuims')
   "   if !has_key(g:neuims, 'keyboards')
   "     echohl WarningMsg
-  "     echomsg '[neuims]Please specify keyboards in g:neuims.'
+  "     echomsg '[neuims] Please specify keyboards in g:neuims.'
   "     echohl NONE
   "   else
   "     if !has_key(g:neuims.keyboards, g:neuims.im)
   "       echohl WarningMsg
-  "       echomsg '[neuims]The current input method is not in specified keyboards.'
+  "       echomsg '[neuims] The current input method is not in specified keyboards.'
   "       echohl NONE
   "     endif
   "   endif
@@ -40,7 +53,7 @@ function! neuims#Switch(silent) abort
   if !g:neuims.status
     if !a:silent
       echohl WarningMsg
-      echomsg '[neuims]Disabled. Call neuims#Toggle() first.'
+      echomsg '[neuims] Disabled. Call neuims#Toggle() first.'
       echohl NONE
     endif
     return
