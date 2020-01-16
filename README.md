@@ -67,12 +67,15 @@ A: I wish I could use some CMD or PowerShell commands to finish the job, but
 I have not found something working so far.
 
 #### Q: How about the other OSs?
-A: Support for Ubuntu may be done soon, but I do not have a MacBook.
+~~A: Support for Ubuntu may be done soon, but I do not have a MacBook.~~
+
+A: Support for IBus is released on 2020.01.16, tested on Ubuntu 16.04. I still
+do not have a MacBook.
 
 
 ## TODO
 [x] Support Windows 10
 
-[ ] Support Linux (Ubuntu)
+[x] Support Linux (IBus)
 
 [ ] Provide a status notification for statusline.
