@@ -41,6 +41,5 @@ EOF
 endfunction
 
 function! s:UnixEnable(im_id) abort
-  echomsg 'ibus engin '.a:im_id
   call system('ibus engine '.a:im_id)
 endfunction
