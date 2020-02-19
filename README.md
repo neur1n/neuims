@@ -5,16 +5,9 @@ An input method switcher.
 
 
 ## Table of Contents
-- [Requirement](#requirement)
 - [Installation](#installation)
 - [Usage](#usage)
-
-
-## Requirement
-- Windows 10
-- Neovim
-- [pynvim](https://pypi.org/project/pynvim/) 0.4.0
-- [pywin32](https://pypi.org/project/pywin32/) 227
+- [Configuration](#configuration)
 
 
 ## Installation
@@ -38,7 +31,10 @@ This plugin needs to be manually enabled before being used to switch input
 methods. There are two ways to enable:
 
 1. Using the command `:IMSToggle`.
-2. Using the predefined key mapping `<leader>it`.
+2. Calling the function `neuims#Toggle()`, or using a key mapping, e.g.:
+```vims
+nnoremap <silent> <leader>it :call neuims#Toggle()<CR>
+```
 
 The command `:IMSToggle` is provided specifically for the purpose of working
 with the on-demand loading feature of vim-plug. While using on-demand loading
@@ -51,8 +47,48 @@ While in enabled status, use `:IMSToggle` or `<leader>it` again.
 
 ### Switch
 Usually, the switching is automatically controlled by the `InsertEnter` and
-`InsertLeave` event. However, one may use the predefined key mapping
-`<leader>is` to switch manually.
+`InsertLeave` event. However, one may call the function `neuims#Switch(0)`
+to switch manually, or using a key mapping, e.g.:
+
+```vim
+nnoremap <silent> <leader>is :call neuims#Switch()<CR>
+```
+
+
+## Configuration
+There are default configurations in the soure code:
+
+```vim
+let s:win = {
+      \ 'im': 'US Keyboard',
+      \ 'status': 0,
+      \ 'keyboards': {
+      \   'US Keyboard': 0x0409,
+      \   'Microsoft Pinyin': 0x0804,
+      \ },
+      \ }
+
+let s:ibus = {
+      \ 'im': 'English (US)',
+      \ 'status': 0,
+      \ 'keyboards': {
+      \   'English (US)': 'xkb:us::eng',
+      \   'Pinyin': 'pinyin',
+      \ },
+      \ }
+```
+
+This should work well with Windows's (7/10) and Ubuntu's (16.04) built-in
+input methods. Let's break it down:
+
+- im: The input method specified here should be the "default" one, which is the
+one in normal mode.
+- status: `0` means neuims is not enabled, `1` means neuims is enabled. It is
+controlled by the plugin itself, the user shall not care about it.
+- keyboards: The two input methods one wants to use in normal/insert mode
+should be specified here, one of which must have the same name of that in `im`.
+For example, if `im` is specified as "English (US)", then there has to be
+"English (US)" in `keyboards`.
 
 
 ## FAQ
@@ -63,8 +99,10 @@ A: I have not found a proper solution for input method switching for Windows up
 to 2020.01.09.
 
 #### Q: Why pynvim and pywin32 dependencies?
-A: I wish I could use some CMD or PowerShell commands to finish the job, but
-I have not found something working so far.
+~~A: I wish I could use some CMD or PowerShell commands to finish the job, but
+I have not found something working so far.~~
+
+A: You should really update `neuims` right now. The dependencies were removed!🎉
 
 #### Q: How about the other OSs?
 ~~A: Support for Ubuntu may be done soon, but I do not have a MacBook.~~
@@ -74,7 +112,7 @@ do not have a MacBook.
 
 
 ## TODO
-[x] Support Windows 10
+[x] Support Windows 7/10
 
 [x] Support Linux (IBus)
 
