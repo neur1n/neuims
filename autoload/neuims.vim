@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-let s:win10 = {
+let s:win = {
       \ 'im': 'US Keyboard',
       \ 'status': 0,
       \ 'keyboards': {
@@ -23,7 +23,7 @@ function! neuims#Init() abort
     if has('unix')
       let g:neuims = s:ibus
     elseif has('win32')
-      let g:neuims = s:win10
+      let g:neuims = s:win
     endif
   endif
   " if exists('g:neuims')
