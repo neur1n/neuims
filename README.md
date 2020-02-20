@@ -92,6 +92,19 @@ should be specified here, one of which must have the same name of that in `im`.
 For example, if `im` is specified as "English (US)", then there has to be
 "English (US)" in `keyboards`.
 
+For example, if one uses [RIME](https://rime.im/) (IBus based) in Ubuntu, the
+configuration may be:
+
+```vim
+let g:neuims = {
+      \ 'im': 'English (US)',
+      \ 'status': 0,
+      \ 'keyboards': {
+      \   'English (US)': 'xkb:us::eng',
+      \   'Rime': 'rime',
+      \ },
+      \ }
+```
 
 ## FAQ
 Basically, these are questions I asked myself.
