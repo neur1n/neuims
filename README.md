@@ -8,6 +8,8 @@ An input method switcher.
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [TODO](#todo)
+- [Acknowledgement](#acknowledgement)
 
 
 ## Installation
@@ -119,3 +121,8 @@ do not have a MacBook.
 [x] Provide a status notification for statusline. (Please check commit
 [ff8c961](https://github.com/Neur1n/dotfiles/commit/ff8c96179cf8ec98379e6c508d8029a104512f50)
 of my [configuration](https://github.com/Neur1n/dotfiles).)
+
+
+## Acknowledgement
+- Thanks to [@elxy](https://github.com/elxy), Python dependencies were removed
+    since [fe2abf1](https://github.com/Neur1n/neuims/commit/fe2abf1c4f73f8538fd6eed972b5155546afeaeb).
