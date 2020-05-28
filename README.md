@@ -1,4 +1,9 @@
 # neuims
+
+## ⚠ This plugin is in super early stage thus limitations will be experienced.
+Check TODO section below for more information.
+
+
 An input method switcher.
 
 ![](./screenshot.gif)
@@ -134,6 +139,11 @@ do not have a MacBook.
 [x] Provide a status notification for statusline. (Please check commit
 [ff8c961](https://github.com/Neur1n/dotfiles/commit/ff8c96179cf8ec98379e6c508d8029a104512f50)
 of my [configuration](https://github.com/Neur1n/dotfiles).)
+
+[ ] Identify MinGW, WSL, etc.
+
+[ ] Use Windows TSF for refactoring, or use [librime](https://github.com/rime/librime)
+to achieve (limited to Rime but) unity and cross platform solution.
 
 
 ## Acknowledgement
