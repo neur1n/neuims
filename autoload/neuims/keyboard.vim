@@ -15,7 +15,9 @@ function! neuims#keyboard#Enable(im_name) abort
   "   return
   " endif
 
-  if has('unix')
+  if system('uname -r') =~ 'WSL'
+    call s:WinEnable(l:im_id)
+  elseif has('unix')
     call s:UnixEnable(l:im_id)
   elseif has('win32')
     call s:WinEnable(l:im_id)
