@@ -25,9 +25,9 @@ function! neuims#keyboard#Enable(im_name) abort
 
   let g:neuims.im = a:im_name
 
-  echohl WarningMsg
-  echomsg '[neuims] Switched to '.a:im_name.'.'
-  echohl clear
+  " echohl WarningMsg
+  " echomsg '[neuims] Switched to '.a:im_name.'.'
+  " echohl clear
 endfunction
 
 let s:win_ims = expand('<sfile>:h:h:h').'/bin/win_ims.exe'
