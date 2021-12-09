@@ -13,9 +13,7 @@ call neuims#Init()
 augroup neuims
   autocmd!
   autocmd InsertEnter,InsertLeave * call neuims#Switch(1)
-  " autocmd CmdlineEnter,CmdlineLeave [/\?] call neuims#Switch(1)
-  autocmd CmdlineEnter,CmdlineLeave * call neuims#Switch(1)
-  " autocmd VimLeave * call neuims#keyboard#Enable('Microsoft Pinyin')
+  autocmd CmdlineEnter,CmdlineLeave [/\?] call neuims#Switch(1)
   autocmd VimLeave * call neuims#Switch(1)
 augroup END
 
