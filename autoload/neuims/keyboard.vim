@@ -15,7 +15,9 @@ function! neuims#keyboard#Enable(im_name) abort
   "   return
   " endif
 
-  if has('unix')
+  if system('uname -r') =~ 'WSL'
+    call s:WinEnable(l:im_id)
+  elseif has('unix')
     call s:UnixEnable(l:im_id)
   elseif has('win32')
     call s:WinEnable(l:im_id)
@@ -23,9 +25,9 @@ function! neuims#keyboard#Enable(im_name) abort
 
   let g:neuims.im = a:im_name
 
-  echohl WarningMsg
-  echomsg '[neuims] Switched to '.a:im_name.'.'
-  echohl clear
+  " echohl WarningMsg
+  " echomsg '[neuims] Switched to '.a:im_name.'.'
+  " echohl clear
 endfunction
 
 let s:win_ims = expand('<sfile>:h:h:h').'/bin/win_ims.exe'
